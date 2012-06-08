@@ -1,0 +1,162 @@
+---
+layout: slides
+title: Functions
+---
+<section>
+<h1>Introduction to Python</h1>
+<h3>Functions</h3>
+</section>
+
+<section>
+<h2>Defining functions</h2>
+{% highlight pycon %}
+>>> def add_hello(who):
+...  return "hello %s" % (who)
+{% endhighlight %}
+<ul>
+	<li>Use def to start function definition</li>
+	<li>Parameters are surrounded by parentheses</li>
+	<li>If you want to return a value, you must explicitly do so using <em>return</em></li>
+	<li>Function params can be given default values...</li>
+</ul>
+{% highlight pycon %}
+>>> def add_hello(who="guido"):
+...  return "hello %s" % (who)
+{% endhighlight %}
+<ul>
+	<li>Can call with no paramaters now!</li>
+</ul>
+</section>
+
+<section>
+<h2>Calling functions</h2>
+<p>Functions can be called with positional arguments</p>
+{% highlight python %}
+def f(a, b, c):
+ print "%s %s %s" % (a, b, c)
+f("by", "it's", "toe")
+{% endhighlight %}
+<p>Functions can be called with keyword arguments (param=value) in any order, but keywords must be the formal parameter names</p>
+{% highlight python %}
+f(c="toe", a="by", b="it's")
+{% endhighlight %}
+<p>Both can be mixed as long as positional comes before keyword arguments</p>
+{% highlight python %}
+f("by", c="toe", b="it's")
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Functions are first class objects</h2>
+<p>Functions can be passed around and assigned just like any other value:</p>
+{% highlight pycon %}
+>>> def add_hello(who):
+...  return "hello %s" % (who)
+>>> type(add_hello)
+?
+>>> f = add_hello
+>>> f
+?
+>>> f = add_hello("Bob")
+>>> f
+?
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Scope, functions in functions</h2>
+<p>You can define a function in a function</p>
+{% highlight python %}
+def gimme_func(x):
+	y = 24
+	def print_x_and_y():
+		print "({}, {})".format(x, y)
+	return print_x_and_y
+
+f =gimme_func(12)
+f()
+#???
+{% endhighlight %}
+<p>print_x_and_y retains access to the variables that were in scope when it was defined, even after gimme_func already returned.  This is called a closure.</p>
+</section>
+
+<section>
+<h2>More about closures</h2>
+<ul>
+	<li>Closures are <em>read only</em> in Python 2.7.x</li>
+	<li>Unless we have mutable types...</li>
+	<li>This stackoverflow answer shows the <a href="http://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures">limitations of closures in Python</a></li>
+</ul>
+</section>
+
+<!--
+<section>
+<h2>make_adder(x)</h2>
+<p>Implement a function, make_adder, that accepts one numeric parameter, x.  make_adder will return a function that adds x to whatever is passed in to that function  </p>
+{% highlight pycon %}
+>>> add_three = make_adder(3)
+>>> add_twenty = make_adder(20)
+>>> add_three(5)
+8
+>>> add_twenty(5)
+25
+{% endhighlight %}
+</section>
+
+<section>
+<h2>make_adder(x) solution</h2>
+{% highlight pycon %}
+>>> def make_adder(n):
+...  def add(x):
+...   return n + x
+...  return add
+... 
+{% endhighlight %}
+</section>
+-->
+
+<section>
+<h2>Arbitrary # of parameters</h2>
+<p>Arbitrary number of positional parameters will be wrapped in a tuple when using *args</p>
+{% highlight pycon %}
+>>> def f(*args):
+...  print type(args)
+>>> f("foo", "bar")
+<type 'tuple'>
+{% endhighlight %}
+<p>Arbitrary number of keyword parameters will be wrapped in a dict when using **kwargs</p>
+{% highlight pycon %}
+>>> def f(**kwargs):
+...  print type(kwargs)
+>>> f(a="foo", b="bar")
+<type 'dict'>
+{% endhighlight %}
+<p>Can be combined!<p>
+{% highlight pycon %}
+>>> def f(a, b, *args, **kwargs):
+...
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Modules and using your functions</h2>
+<ul>
+	<li>Modules are just files</li>
+	<li>Easy if module is in same dir, otherwise... PYTHON_PATH</li>
+	<li>Import the file without the extension</li>
+	<li><code>import my_module</code></li>
+	<li>Access your functions using the dot operator: <code>my_module.my_func()</code></li>
+	<li>Module name acts as a name space</li> 
+</ul>
+</section>
+
+<section>
+<h2>Some things to watch out for</h2>
+<ul>
+	<li>You can also use from my_module import my_func to use my_func directly</li> 
+	<li>However, avoid <code>from my_module import *</code></li>
+	<li>This might end up trampling over some of your own definitions</li>
+	<li>Also... note that the entire file gets executed on import</li>
+	<li>You might want to stick things in <code>if __name__ == "__main__":</code></li>
+	<li>For example, you may want to run tests, or something lightweight, like assertions</code></li>
+</ul>

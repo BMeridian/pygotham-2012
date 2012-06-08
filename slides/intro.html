@@ -1,0 +1,255 @@
+---
+layout: slides
+title: Intro
+---
+<section>
+	<h1>Introduction to Python</h1>
+	<h3>Hi.  How are you?</h3>
+</section>
+
+<section>
+<h2>What are we covering?</h2>
+<ul>
+	<li>Just enough (hopefully) Python for some of the other talks...
+	<li>Notable Features of Python (@ 4:30 I'm going to this!).</li>
+	<li>Web framework basics (tomorrow).</li>
+	</li>
+</ul>
+<details>
+</details>
+</section>
+
+<section>
+<h2>But specifically...</h2>
+<ul>
+	<li>About this talk (uh, we're doing that now), Python the language, and setting up</li>
+	<li>REPL, syntax, strings, numeric types, and conditionals</li>
+	<li>Lists, tuples, dictionaries, and loops</li>
+	<li>Functions and modules</li>
+	<li>Classes and exceptions</li>
+	<li>Resources and questions</li>
+</ul>
+<details>
+</details>
+</section>
+
+<section>
+<h2>And we'll go through that with:</h2>
+<ul>
+	<li>Run-of-the-mill slideshows.</li>
+	<li>Live demos with the Python interactive shell (yikes!).</li>
+	<li>Coding exercises.</li>
+</ul>
+<details>
+<ul>
+<li>Live demos - asking for trouble!</li>
+<li>Might be hokey</li>
+<ul>
+</details>
+</section>
+
+<section>
+<h2>Who?</h2>
+<ul>
+	<li>joeversoza at gmail</li>
+	<li><a href="http://foureyes.github.com/pygotham-2012/">http://foureyes.github.com/pygotham-2012/</a></li>
+</ul>
+<details>
+<ul>
+<ul>
+	<li>Similar talk last year</li>
+	<li>Taught a beginner's Python course at City Tech, a CUNY college in Brooklyn </li>
+	<li>Also taught beginners programming, in as3, processing, etc</li>
+	<li>Worked professionally with Python on and off for about 3 or 4 years, mostly web</li>
+	<li>Don't do as much programming anymore so teaching is a great way to stay involved</li>
+	<li>Not an expert - talk to Gloria or Vivek!</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>And... you!</h2>
+<ul>
+	<li>I'm assuming  <em>some</em> amount of programming experience.
+		<ul>
+			<li>If you're haven't prorammed before, this might be fast paced</li>
+			<li>If you're an experienced Pythonista, then you may want to check out the next talk</li>
+		</ul>
+	</li>
+	<li>A quick survey.
+		<ul>
+			<li>Past programming experience, but not in Python</li>
+			<li>Novice?</li>
+			<li>Intermediate / advanced?</li>
+		</ul>
+		
+	</li>
+</ul>
+<details>
+</details>
+</section>
+
+
+<section>
+<h2>To work on the exercises, you'll need:</h2>
+<ul>
+	<li>A laptop.</li>
+	<li>A text editor or IDE.</li>
+	<li>Python (2.6 or 2.7).</li>
+</ul>
+<details>
+<ul>
+	<li>Just make sure you have your tabs sorted out</li>
+</ul>
+</details>
+</section>
+
+
+
+<section>
+<h2>Enough meta -- what now?</h2>
+<ul>
+	<li>Python history and language features</li>
+	<li>Setting up</li>
+</ul>
+<details>
+</details>
+</section>
+
+<section>
+<h2>Some Python history</h2>
+<ul>
+	<li>Yes, it was named after Monty Python.</li>
+	<li>Based on ABC.</li>
+	<li>Invented in 1991 by this bearded Dutch guy (Guido van Rossum):</li>
+</ul>
+<div class="img-container">
+	<img src="../img/guido.jpg" />
+</div>
+<details>
+<ul>
+	<li>ABC - teaching / prototyping language meant to replace BASIC, Pascal, etc</li>
+	<li>Also known as Python's "Benevolent Dictator for Life"</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>Where it's going (and how it's getting there)</h2>
+<ul>
+	<li>Two active branches of Python: 2.x and 3.x.</li>
+	<li>Python Enhancement Proposals (PEPs).</li>
+	<li>CPython - reference implementation, but there are others.</li>
+	<li>The Python Software Foundation (PSF).</li>
+</ul>
+<details>
+<ul>
+	<li>3.x meant to remove duplicate features and perceived flaws with prior implementation</li>
+	<li>3.x is not backward compatible, but some features have been backported</li>
+	<li>PEPs provide structure for evolution and dev of Python; add language features as well as conventions</li>
+	<li>PyPy - Python in Python!, Jython - for the JVM, etc.</li>
+ 	<li>PSF - non-profit organization that provides organizational structure, governance and community building</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>Where you've seen it before</h2>
+<ul>
+	<li>Frameworks like:
+		<ul>
+			<li>Pyramid / Pylons (Dropbox, reddit)</li>
+			<li>Django (Instagram, Pinterest, Disqus)</li>
+			<li>Tornado (quora)</li>
+			<li>Turbogears (SourceForge)</li> 
+		</ul>
+	</li>
+	<li>EVE online</li>
+	<li>Original Bittorent client</li>
+	<li>Embedded scripting in Maya and Blender</li>
+</ul>
+</section>
+
+<section>
+<h2>About the <em>language</em></h2>
+<ul>
+	<li>Compiled <em>and</em>&nbsp;&nbsp;interpreted programming language</li>
+	<li>Dynamically typed</li>
+	<li>Duck typed</li>
+	<li>Strongly typed</li>
+	<li>Whitespace significant</li>
+	<li>Multi-paradigm</li>
+	<li>Comprehensive standard library</li>
+</ul>
+<details>
+<ul>
+	<li>Technically it's compiled to bytecode, much like Java or c#, but there's no explicit compilation step<li> 
+	<li>Dynamically typed - type checks are done at run time rather than compile time, allowing for for types and functionality to be generated at run time... allows duck typing (ex file-like classes in python). Values have types, but variables don't.<li> 
+	<li>Imperetive, object oriented, and to some extent, functional programming</li>
+</details>
+</section>
+
+<section>
+<h2>And all of that means...</h2>
+<ul>
+    <li>Ease of use</li>
+	<li>Easier to Ask Forgiveness than Permission (EAFP)</li>
+	<li>One obvious way to do things</li>
+	<li>Readability</li>
+	<li>Batteries included</li>
+</ul>
+<details>
+<ul>
+	<li>Ease of use - no need to wait for compile, no need to declare types, type checking at runtime</li>
+	<li>Ease of use - No coercion like PHP or JavaScript</li>
+	<li>EAFP - duck typing and exceptions</li>
+	<li>Readability - forces proper indentation; whitespace is both human and computer "readable"</li>
+	<li>Batteries Included - large standard library</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>Setup</h2>
+<p>The current 2.x release is 2.7.2, so we'll target 2.7.x for our exercises.</p>
+<ul>
+	<li>Python installed by default on OSX or Ubuntu </li>
+	<li>Windows XP and later: http://www.python.org/download/releases/</li>
+	<li>SSH to the server provided by the conference (maybe?)</li>
+</ul>
+<details>
+<ul>	
+	<li>Although Python 3.x is the eventual future of Python, it hasn't been widely adopted in production systems yet, so we're going with 2.x</li>  
+	<li>2.7.1 is on Lion and Natty</li>
+	<li>Though for most of what we're doing, 2.7.x or 2.6.x should suffice</li>
+	<li>For Windows, I've heard that there may be some PYTHON_PATH issues</li>
+	<li>For the server (putty on windows, or ssh on OSX, Linux), you may be constrained a bit (no installing packages?)</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>Aaaaaannnnnnnddddd <b>GO!</b></h2>
+<p>Test your install by typing "python" in terminal or cmd.exe</p>
+{% highlight pycon %}
+
+
+joe@natty:~$ python
+
+Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
+[GCC 4.5.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> print "Hi PyGotham!"
+Hi PyGotham!
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Some miscellaneous (mostly non-Python) links</h2>
+<ul>
+	<li><a href="http://paulrouget.com/dzslides/">http://paulrouget.com/dzslides/</a> for the slideshow</li>
+	<li><a href="http://pages.github.com/">http://pages.github.com/</a> for hosting</li>
+	<li><a href="https://github.com/mojombo/jekyll">https://github.com/mojombo/jekyll</a> for publishing tools</li>
+</ul>
+</section>

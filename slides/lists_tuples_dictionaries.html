@@ -1,0 +1,223 @@
+---
+layout: slides
+title: Lists, tuples, and dictionaries
+---
+<section>
+<h2>What's a list?</h2>
+<ul>
+	<li>An ordered sequence of values</li>
+	<li>Values don't have to be of the same type</li>
+	<li>Think ArrayList in Java/Processing</li>
+	<li>Think (a better) array in C/C++</li>
+</ul>
+</section>
+
+<section>
+<h2>Creating lists</h2>
+<ul>
+	<li>[] - brackets without anything between them - empty list</li>
+	<li>["a string", 1] - brackets with comma separated values</li>
+	<li>range(10) - range function returns list of ints from 0 up to but not including parameter</li>
+	<li>you can also use list() to create an empty list (or it can take an iterable as an argument)</li>
+</ul>
+</section>
+
+<section>
+<h2>About... </h2>
+<ul>
+	<li>slicing returns a new list - my_list[0:4]</li>
+	<li>some methods you call on a list - my_list.append(45)</li>
+	<li>some built in functions use a list as an argument - len([1,2,3])</li>
+	<li>some built in statements act on lists - del my_list[4]
+	<li>some things return new lists - range(10)</li>
+	<li>some edit the list in place - my_list.extend([45,46])</li>
+</ul>
+</section>
+
+<section>
+<h2>BTW, strings, just like lists, are a sequence type </h2>
+<ul>
+	<li>You can loop over strings</li>
+	<li>You can slice strings</li>
+	<li>etc...</li>
+</ul>
+</section>
+
+<section>
+<h2>For loops</h2>
+<ul>	
+	<li>For loops iterate over items in a sequence (such as lists or chars in a string)</li>
+	<li>Not for arithmetic loop progression (well, maybe with some prodding)</li>
+	<li>Starts with keyword <strong>for</strong>, followed by a variable name to represent each element in sequence</li>
+	<li>Then... keyword <strong>in</strong>, and finally the sequence followed by a colon</li>
+</ul>
+{% highlight pycon %}
+>>> for i in [-1, 1, 1, 5]:
+...  print i + 2
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Almost like your typical for loop?</h2>
+{% highlight pycon %}
+>>> for i in range(10):
+...  print i
+{% endhighlight %}
+</section>
+
+<section>
+<h2>Need the index for your array of stuff?</h2>
+<ul>
+	<li>Use enumerate to get a tuple of the index at item...</li>
+</ul>
+{% highlight pycon %}
+>>> animals = ['narwhal', 'unicorn', 'sea cucumber']
+>>> for i, animal in enumerate(animals):
+...  print "animal {} is {}".format(i, animal)
+... 
+animal 0 is narwhal
+animal 1 is unicorn
+animal 2 is sea cucumber
+{% endhighlight %}
+</section>
+
+<section>
+<h2>While loops</h2>
+<ul>	
+	<li>Will execute body of loop as long as a condition is True</li>
+	<li>Starts with keyword <strong>while</strong> which is then followed by a condition and a colon</li>
+</ul>
+{% highlight pycon %}
+>>> i = 0
+>>> while i < 10:
+...  print i
+...  i = i + 1
+{% endhighlight %}
+</section>
+
+<section>
+<h2>List comprehensions</h2>
+<ul>
+	<li>In some situations, there's a more idiomatic way of iterating over a  list</li>
+	<li>A compact way of acting on every element in a list to return a new list
+		<ul>
+			<li>Think of it as a one line for in loop</li>
+			<li>If you're familiar with functional programming, it does some of the things that map, filter and lambda do in one construct</li>
+		</ul>
+	</li>
+	<li>General pattern: <em>expression</em> for <em>var</em> in <em>list</em></li> 
+	<li>...followed by an optional if which acts like a filter</li>
+</ul>
+{% highlight pycon %}
+>>> [s.strip() for s in ['   space ', 'man   ']]
+['space', 'man']
+['man']
+>>> [s.strip() for s in ['   space ', 'man   ', ' MAn '] \
+... if s.strip().upper() == 'MAN']
+['man', 'MAn']
+{% endhighlight %}
+<details>
+<pre>
+map maps a function to every element in an array/list
+filter filters an array/list using a function
+lambda allows for anonymous functions
+.... all of these actually exist in Python
+</pre>
+</details>
+</section>
+
+<section>
+<h2>Tuples</h2>
+<ul>
+	<li>Another sequence type - like lists and strings</li>
+	<li>But they're immutable!  Think of it as a list that can't be changed</li>
+	<li>Tuples are just comma delimited sequences: 1, 2 </li>
+	<li><code>t = 1, 2, 3 # creates a tuple</code></li>
+	<li>They're usually wrapped in ()'s though: (1, 2), but it's the commas that are important!</li>
+	<li>Special case: a tuple of one element needs one trailing comma</li>
+</ul>
+<details>
+<pre>
+(demo) can't append because immutable
+(demo) just commas
+(demo) one element
+</pre>
+</details>
+</section>
+
+<section>
+<h2>Unpacking Tuples</h2>
+<ul>
+	<li>A tuple can be unpacked into variables: a, b, c = t where t is a tuple with 3 values</li>
+	<li>Look familiar?  Multiple assignment is really just sequence unpacking.</li>
+</ul>
+<details>
+<pre>
+(demo) packing unpacking
+(demo) for k, v in ...
+</pre>
+</details>
+</section>
+
+<section>
+<h2>Dictionaries</h2>
+<ul>
+	<li>Like lists, they're mutable</li>
+	<li>But they're not a sequence type</li>
+	<li>An unordered set of key-value pairs (really!  you absolutely cannot rely on the order of dictionary elements)</li>
+	<li>Called associative arrays or hashes in other languages</li>
+	<li>Keys must be unique and immutable (numbers and strings work great!)</li>
+	<li>Values can be anything!</li>
+	<li>Like JSON, curly braces and colons to represent dictionaries and name/value pairs</li>
+</ul>
+</section>
+
+<section>
+<h2>Creating dictionaries and accessing elements</h2>
+<ul>
+	<li>Curly braces surround entire dictionary</li>
+	<li>Keys and their associated value are separated by a colon</li>
+	<li>Each pair of key/values are separated by commas</li>
+	<li><code>{'k':'v', 'foo':'bar'}</code></li>
+	<li>Accessing values is like accessing the index of an array</li>
+	<li><code>d['foo']</code></li>
+</ul>
+<details>
+<ul>
+	<li>(demo) accessing elements</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>Iterating through dictionaries</h2>
+{% highlight python %}
+>>> d = {'foo':'bar', 'baz':'qux'}
+>>> for e in d:
+...  print e
+... 
+foo
+baz
+???
+# use items() method...
+{% endhighlight %}
+<details>
+<ul>
+	<li>(demo) regular for loop goes through keys</li>
+	<li>(demo) for loop using k, v to get error</li>
+	<li>(demo) items()</li>
+</ul>
+</details>
+</section>
+
+<section>
+<h2>There's a bit more to it</h2>
+<ul>
+	<li>And if a key doesn't exist... KeyError!</li>
+	<li>Unless you're creating a new key/value pair</li>
+	<li>d.get('bob') # no exception, get None instead</li>
+	<li>d = dict(foo = "bar", baz = "qux") # constructor style rather than dict literal</li>
+	<li>d.keys() # returns a list of the dict's keys</li>
+	<li>d.items() # returns a list of tuples of the name value pairs</li>
+</ul>
+</section>
