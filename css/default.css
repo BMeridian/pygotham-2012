@@ -32,7 +32,8 @@ h3 {
 	border-bottom: 3px dotted;
 }
 #content {
-	padding:0em 1em 2em 1em;
+	padding:0em 1em 1em 1em;
+	margin-bottom: 3em;
 }
 
 
