@@ -5,7 +5,7 @@ body {
 	font-family: 'Oswald', arial, serif;
 	background-color: white;
 	color: white;
-	font-size: 1.0em;
+	font-size: 1.4em;
 	background: #1C1C1C;
 }
 
@@ -32,7 +32,7 @@ h3 {
 	border-bottom: 3px dotted;
 }
 #content {
-	padding:0em 1em 0em 1em;
+	padding:0em 1em 2em 1em;
 }
 
 
