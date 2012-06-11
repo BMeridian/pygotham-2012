@@ -1,39 +1,41 @@
-html { background-color: #1C1C1C; }
-a { color: #FF0066; } a:hover {text-decoration: underline;}
-strong {color: #FF0066}
 body {
-	font-family: 'Oswald', arial, serif;
-	background-color: white;
+	font-family: 'Signifika', sans-serif;
 	color: white;
 	font-size: 1.4em;
-	background: #1C1C1C;
+	background-color: #070707;
 }
 
-.highlight, ul, ol, p, .slide-body {
-}
-
-.highlight {
-	margin:10px;
-}
-
-ul {
-	margin-top:0px;
-	margin-bottom:0px;
-}
 h1 {
+	color: #FFD700;
 }
- 
+
 h3 {
-	color: #FAE50B;
+	color: #FFD700;
 	font-size: 1.4em;
 	padding: 0px;
 	margin-top: 1.2em;
 	margin-bottom: 0.4em;
 	border-bottom: 3px dotted;
 }
+
+ul {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+a { 
+	color: #4A9ADC; 
+} 
+
+a:hover {
+	text-decoration: underline;
+}
+
+strong {
+	color: #CE22CE;
+}
+
 #content {
 	padding:0em 1em 1em 1em;
 	margin-bottom: 3em;
 }
-
-
